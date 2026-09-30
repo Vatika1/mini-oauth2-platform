@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: auth-server
+
+server:
+  port: 9000
+
+auth:
+  signing:
+    issuer: http://localhost:9000
+    audience: hello-api
+    token-ttl: 5m
+    active-key-id: key-1
