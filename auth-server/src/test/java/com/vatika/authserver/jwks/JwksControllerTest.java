@@ -41,11 +41,14 @@ public class JwksControllerTest {
     void jwks_keysHaveRfcFields() throws Exception {
         mockMvc.perform(get("/.well-known/jwks.json"))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.keys[*].kty", hasSize(2)))
                 .andExpect(jsonPath("$.keys[*].kty", everyItem(is("RSA"))))
+                .andExpect(jsonPath("$.keys[*].alg", hasSize(2)))
                 .andExpect(jsonPath("$.keys[*].alg", everyItem(is("RS256"))))
+                .andExpect(jsonPath("$.keys[*].use", hasSize(2)))
                 .andExpect(jsonPath("$.keys[*].use", everyItem(is("sig"))))
-                .andExpect(jsonPath("$.keys[*].n", everyItem(notNullValue())))
-                .andExpect(jsonPath("$.keys[*].e", everyItem(notNullValue())));
+                .andExpect(jsonPath("$.keys[*].n", hasSize(2)))
+                .andExpect(jsonPath("$.keys[*].e", hasSize(2)));
     }
 
     @Test
