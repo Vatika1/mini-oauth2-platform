@@ -1,7 +1,6 @@
 package com.vatika.authserver.token;
 
 import com.nimbusds.jose.JOSEException;
-import com.nimbusds.jwt.JWT;
 import com.vatika.authserver.config.SigningProperties;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
