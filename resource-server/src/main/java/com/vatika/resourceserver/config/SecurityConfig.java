@@ -1,5 +1,6 @@
 package com.vatika.resourceserver.config;
 
+import com.vatika.resourceserver.security.JsonAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -13,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http){
+    SecurityFilterChain securityFilterChain(HttpSecurity http, JsonAuthenticationEntryPoint authenticationEntryPoint){
         http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
@@ -24,7 +25,8 @@ public class SecurityConfig {
                         .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2
-                        .jwt(Customizer.withDefaults()));
+                        .jwt(Customizer.withDefaults())
+                        .authenticationEntryPoint(authenticationEntryPoint));
 
         return http.build();
     }
