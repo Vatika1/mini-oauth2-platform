@@ -56,7 +56,7 @@ The AI also advised against Spring Authorization Server for this assignment, and
 
 - Scoping: separating what the assignment asks for from what is out of scope.
 - Planning: breaking the work into ordered steps, one commit each.
-- Test design: deciding which cases to cover (one test per thing the output must get right, plus negative cases for anything security-related).
+- Test design: checking my list of test cases for missing negative and security cases.
 - Debugging: I pasted real stack traces and output. Examples: a port conflict with a Docker container, a missing dependency version in the POM, and a 401 response that was hiding a `NullPointerException`.
 - Understanding framework behaviour: for example, why `/hello` returned 401 before I had written any security configuration.
 - Documentation: the AI drafted the README from the finished code. I rewrote the key-distribution section from my own notes.
@@ -78,8 +78,7 @@ The AI also advised against Spring Authorization Server for this assignment, and
 ## Example prompts
 
 - "Describe what this class needs in words. Do not give me the code. I will write it and you review it."
-- "What is stopping `/hello` from being accessed without a token? I have not written any security code yet."
-- "Why should the stub use `eq("alice")` instead of `any()`?"
-- "How do I decide which test cases to write?"
+- "I am considering a static list of public keys in the resource server, selected by `kid`. How does that compare with a JWKS endpoint?"
+- "Which auto-configuration is protecting `/hello`? I have not defined a `SecurityFilterChain` yet."
 - "Show me the internals of each object: the RSA key, the claims set, the header and the signed JWT."
 - "Before I commit, review this test class."
