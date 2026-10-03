@@ -1,0 +1,18 @@
+services:
+  auth-server:
+    build:
+      context: .
+      dockerfile: auth-server/Dockerfile
+    ports:
+      - "9000:9000"
+
+  resource-server:
+    build:
+      context: .
+      dockerfile: resource-server/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: http://auth-server:9000/.well-known/jwks.json
+    depends_on:
+      - auth-server
