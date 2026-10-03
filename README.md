@@ -63,6 +63,18 @@ cd resource-server
 ./mvnw spring-boot:run
 ```
 
+## Run with Docker
+
+Requires Docker only. From the repo root:
+
+```bash
+docker compose up --build
+```
+
+The auth server starts on port 9000 and the resource server on port 8080. Inside Docker, the resource server fetches the JWKS from `http://auth-server:9000`, set in `docker-compose.yml`.
+
+Stop with `Ctrl+C`, then `docker compose down`.
+
 ## Try it
 
 ```bash
