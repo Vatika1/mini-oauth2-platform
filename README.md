@@ -75,7 +75,7 @@ The auth server starts on port 9000 and the resource server on port 8080. Inside
 
 Stop with `Ctrl+C`, then `docker compose down`.
 
-## Try it
+## Manual Testing
 
 ```bash
 # 1. Get a token
