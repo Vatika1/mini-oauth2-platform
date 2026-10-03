@@ -5,8 +5,7 @@ I used AI as an engineering assistant rather than relying on it purely for code 
 ## Tools
 
 ### GitHub Copilot
-- IDE autocomplete and boilerplate generation
-- Test skeletons and repetitive implementation
+- IDE autocomplete for repetitive lines such as imports and builder chains
 - Small refactors and code-completion suggestions
 
 ### Claude Chat
@@ -18,9 +17,7 @@ I used AI as an engineering assistant rather than relying on it purely for code 
 ### Claude Code
 - Project-level and cross-file code review
 - Debugging failing tests and runtime issues
-- Security review and adversarial analysis
 - Identifying missing negative and edge-case tests
-- Reviewing code for maintainability, readability, and unnecessary complexity
 - Tracing authentication and JWT-validation flows across multiple components
 
 ## Engineering validation
